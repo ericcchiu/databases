@@ -4,7 +4,7 @@ CREATE DATABASE chat;
 
 USE chat;
 
-DROP TABLE IF EXISTS messages;
+-- DROP TABLE IF EXISTS messages;
 
 CREATE TABLE messages (
   id int AUTO_INCREMENT PRIMARY KEY,
@@ -14,16 +14,17 @@ CREATE TABLE messages (
   user_key int
 );
 
+
 /* Create other tables and define schemas for them here! */
 
-DROP TABLE IF EXISTS users;
+-- DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
   id int AUTO_INCREMENT PRIMARY KEY,
   username VARCHAR(20) NULL DEFAULT NULL
 );
 
-ALTER TABLE messages ADD FOREIGN KEY (user_key) REFERENCES users (id);
+
 
 
 /*  Execute this file from the command line by typing:

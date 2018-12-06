@@ -34,13 +34,15 @@ module.exports = {
 
     },
     post: function (username, callback) {
-      // let queryString = `INSERT INTO users (username) VALUES ('${username}');`;
-      let queryString = `INSERT INTO users SET ?`;
+      let queryString = `INSERT INTO users (username) VALUES ('${username}');`;
+      // let queryString = `INSERT INTO users (username) VALUES (?)`;
 
-      console.log('db import: ', db.query);
+      // console.log('db import: ', db.query);
+      console.log(username);
 
-      db.query(`INSERT INTO users ('username') VALUES ('John');`, (err, results) => {
+      db.query(queryString, (err, results) => {
         if (err) {
+
           console.log("ERROR ON USERS POST REQUEST: ", err)
           callback(err);
         }

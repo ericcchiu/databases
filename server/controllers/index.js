@@ -24,21 +24,15 @@ module.exports = {
     },
     post: function (req, res) {
       console.log('USERNAME IN REQUEST: ', req.body.username)
-      models.users.post(req.body.username, (err) => {
+      models.users.post(req.body.username, (err, results) => {
         if (err) {
           console.log('ERROR POSTING USERNAME TO USERS FROM CONTROLLER: ', err)
+        } else {
+          console.log(results);
         }
-        res.end('HALLOOO');
       })
-
-      // console.log('USERS POST STATUS CODE: ', res.statusCode);
-      // req.on('data', (chunk) => {
-      //   console.log('CHUNK: ', chunk);
-      // }).on('end', () => {
-      //   res.statusCode = 201;
-      //   res.end('POST SUCCESSFUL TO USERS');
-      //  });
-
+      res.sendStatus(201);
+      res.end();
     }
   }
 };
