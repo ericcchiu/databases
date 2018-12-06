@@ -11,10 +11,7 @@ CREATE TABLE messages (
   username VARCHAR(20),
   message_text VARCHAR(400),
   roomname VARCHAR(40),
-  user_key int,
-  room_key int
-  -- FOREIGN KEY (user_key) REFERENCES users (id),
-  -- FOREIGN KEY (room_key) REFERENCES rooms (id)
+  user_key int
 );
 
 /* Create other tables and define schemas for them here! */
@@ -26,15 +23,7 @@ CREATE TABLE users (
   username VARCHAR(20) NULL DEFAULT NULL
 );
 
-DROP TABLE IF EXISTS rooms;
-
-CREATE TABLE rooms (
-  id int AUTO_INCREMENT PRIMARY KEY,
-  roomname VARCHAR(40) NULL DEFAULT NULL
-);
-
 ALTER TABLE messages ADD FOREIGN KEY (user_key) REFERENCES users (id);
-ALTER TABLE messages ADD FOREIGN KEY (room_key) REFERENCES rooms (id);
 
 
 /*  Execute this file from the command line by typing:
