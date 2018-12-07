@@ -11,6 +11,7 @@ CREATE TABLE messages (
   username VARCHAR(20),
   message_text VARCHAR(400),
   roomname VARCHAR(40)
+  -- CONSTRAINT username UNIQUE (username)
 );
 
 INSERT INTO messages (username, message_text, roomname) VALUES ('Frank', 'Frank is Frank is Frank', 'main');
@@ -21,7 +22,8 @@ DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
   id int AUTO_INCREMENT PRIMARY KEY,
-  username VARCHAR(20) NOT NULL
+  username VARCHAR(20) NOT NULL UNIQUE,
+  CONSTRAINT uc_username UNIQUE (username)
 );
 
 INSERT INTO users (username) VALUES ('Frank');

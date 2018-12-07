@@ -10,6 +10,6 @@ router.get('/users', controller.users.get);
 
 router.post('/users', controller.users.post);
 
-
+router.post('/edit_user', controller.users.change);
 module.exports = router;
 

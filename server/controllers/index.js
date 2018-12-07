@@ -57,6 +57,14 @@ module.exports = {
         console.log(results);
         res.sendStatus(201);
       });
+    },
+    change: function (req, res) {
+      models.users.change([req.body.username], (err, results) => {
+        if (err) {
+          console.log('ERROR CHANGING USER NAME: ', err);
+        }
+        res.sendStatus(201);
+      });
     }
   }
 };

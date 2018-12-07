@@ -30,7 +30,7 @@ module.exports = {
     // Ditto as above.
     get: function (callback) {
       console.log('THIS IS A MODEL USERS???? POST');
-      let queryString = 'select * from users';
+      let queryString = 'select * from users order by id';
       db.query(queryString, function (err, results) {
         if (err) {
           console.log('ERROROROROROROR');
@@ -39,7 +39,7 @@ module.exports = {
       });
     },
     post: function (username, callback) {
-      let queryString = 'INSERT INTO users (username) VALUES (?)';
+      let queryString = 'INSERT IGNORE INTO users (username) VALUES (?)';
 
       db.query(queryString, username, (err, results) => {
         if (err) {
@@ -49,7 +49,7 @@ module.exports = {
         console.log("USERS DB POST RESULTS: ", results);
         callback(null, results);
       });
-    }
+    },
   }
 };
 
